@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} — DarkBox{% endblock %}
+{% block content %}
+<header class="netflix-header">
+<div class="header-inner">
+<a class="brand" href="/">DARKBOX</a>
+<nav class="desktop-nav"><a href="/youtube" class="active">YouTube</a></nav>
+</div>
+</header>
+<main class="home">
+<h1>YouTube</h1>
+<p>Category: {{ category }} | Query: {{ query }}</p>
+<a class="action-btn" href="/youtube?category=movie">Movies</a>
+<a class="action-btn" href="/youtube?category=anime">Anime</a>
+<a class="action-btn" href="/youtube?category=song">Songs</a>
+</main>
+{% endblock %}
