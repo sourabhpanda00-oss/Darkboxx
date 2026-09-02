@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} — DarkBox{% endblock %}
+{% block content %}
+<header class="netflix-header">
+<div class="header-inner">
+<a class="brand" href="/">DARKBOX</a>
+<nav class="desktop-nav"><a href="/youtube" class="active">YouTube</a></nav>
+</div>
+</header>
+<main class="watch-page-full">
+<div class="watch-layout">
+<div class="main-video-section">
+<div class="video-container" id="videoContainer">
+<div class="video-wrapper">
+<iframe
+id="ytPlayer"
+src="https://www.youtube.com/embed/{{ video_id }}?rel=1&fs=1&modestbranding=1&autoplay=1&controls=1"
+title="{{ title }}"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+allowfullscreen
+webkitallowfullscreen
+mozallowfullscreen>
+</iframe>
+</div>
+</div>
+<h1 class="video-title">{{ title }}</h1>
+<div class="video-actions">
+<a class="action-btn" href="https://www.youtube.com/watch?v={{ video_id }}" target="_blank">↗ Open in YouTube</a>
+<button class="action-btn" onclick="forceFullscreen()">⛶ Fullscreen</button>
+<a class="action-btn" href="/youtube">Browse More</a>
+</div>
+</div>
+<div class="related-sidebar">
+<h2>Up Next</h2>
+<div class="related-list">
+<a class="related-item" href="/youtube?category=movie&q=bollywood+official">
+<img src="https://img.youtube.com/vi/{{ video_id }}/mqdefault.jpg" alt="Movie">
+<div class="related-info"><b>Bollywood Movies</b><small>Official</small></div>
+</a>
+<a class="related-item" href="/youtube?category=anime&q=naruto">
+<img src="https://i.ytimg.com/ytc/default.jpg" alt="Anime">
+<div class="related-info"><b>Anime</b><small>Official</small></div>
+</a>
+<a class="related-item" href="/youtube?category=song&q=latest">
+<img src="https://i.ytimg.com/ytc/default.jpg" alt="Songs">
+<div class="related-info"><b>Songs</b><small>Latest</small></div>
+</a>
+</div>
+</div>
+</div>
+</main>
+<script>
+function forceFullscreen(){var c=document.getElementById('videoContainer');if(c.requestFullscreen){c.requestFullscreen()}else if(c.webkitRequestFullscreen){c.webkitRequestFullscreen()}}
+window.addEventListener('load',function(){setTimeout(forceFullscreen,1200)});
+</script>
+{% endblock %}
